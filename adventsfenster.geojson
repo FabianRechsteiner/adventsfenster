@@ -1,0 +1,396 @@
+{
+    "type": "FeatureCollection",
+    "name": "data",
+    "crs": {
+        "type": "name",
+        "properties": {
+            "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+        }
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "Nummer": "1",
+                "Name": "Schulhaus im Grund",
+                "Adresse": "Grünaustrasse 2",
+                "Einweihung": null
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.363559066310341,
+                    47.566686
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Nummer": "2",
+                "Name": "Pflegeheim Romanshorn",
+                "Adresse": "Seeblickstrasse 3",
+                "Einweihung": "Ab 17.00 Uhr"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.37647523142525,
+                    47.5713797
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Nummer": "3",
+                "Name": "Familie Risi",
+                "Adresse": "Steinhaldenweg 6",
+                "Einweihung": null
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.369414437888199,
+                    47.5745998
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Nummer": "4",
+                "Name": "Stadt Romanshorn",
+                "Adresse": "Bahnhofstrasse 19",
+                "Einweihung": null
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.37365716385562,
+                    47.56581475
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Nummer": "5",
+                "Name": "Familie Gemperle",
+                "Adresse": "Hinterlohstrasse 16",
+                "Einweihung": null
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.3711642,
+                    47.57252885
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Nummer": "6",
+                "Name": "Ströbele Kommunikation",
+                "Adresse": "Alleestrasse 35",
+                "Einweihung": null
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.3773751,
+                    47.5644369
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Nummer": "7",
+                "Name": "Familie Widmer",
+                "Adresse": "Steinhaldenweg 7",
+                "Einweihung": null
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.369889497222221,
+                    47.5747331
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Nummer": "8",
+                "Name": "Familie Scherrer",
+                "Adresse": "Mattenweg 2",
+                "Einweihung": "Ab 17.00 Uhr"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.364906879433306,
+                    47.56801355
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Nummer": "9",
+                "Name": "Familie Marquart Roth",
+                "Adresse": "Holzensteinerstrasse 46A",
+                "Einweihung": null
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.368461430293678,
+                    47.575200705512181
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Nummer": "10",
+                "Name": "Familie Goldinger",
+                "Adresse": "Kirchgasse 7",
+                "Einweihung": null
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.3798376,
+                    47.5687045
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Nummer": "11",
+                "Name": "Gemeindebibliothek Romanshorn",
+                "Adresse": "Alleestrasse 50",
+                "Einweihung": null
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.37784,
+                    47.563502
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Nummer": "12",
+                "Name": "Claro Laden",
+                "Adresse": "Alleestrasse 44",
+                "Einweihung": null
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.3776705,
+                    47.5641944
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Nummer": "13",
+                "Name": "Lea Ettlin",
+                "Adresse": "Schlossbergstrasse 27",
+                "Einweihung": null
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.380233,
+                    47.5692295
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Nummer": "14",
+                "Name": "Familie Tobler",
+                "Adresse": "Steinhaldenweg 38",
+                "Einweihung": "Ab 17.00 Uhr"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.374450898098434,
+                    47.57268455
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Nummer": "15",
+                "Name": "Jubla Romanshorn",
+                "Adresse": "Schlossbergstrasse 20",
+                "Einweihung": "12.00 - 14.00 Uhr"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.379565824336856,
+                    47.56908823833349
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Nummer": "17",
+                "Name": "Chinderhuus Sunnehof Gruppe Rägäbogä",
+                "Adresse": "Sonnenhofstrasse 2",
+                "Einweihung": null
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.370752238799733,
+                    47.563334095697527
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Nummer": "18",
+                "Name": "Peregrina Stiftung",
+                "Adresse": "Kreuzlingerstrasse 9",
+                "Einweihung": "Ab 17.00 Uhr"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.365839655207196,
+                    47.56681375
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Nummer": "19",
+                "Name": "Chinderhuus Sunnehof Gruppe Wirbelwind",
+                "Adresse": "Sonnenhofstrasse 23",
+                "Einweihung": null
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.36969625,
+                    47.5634817
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Nummer": "20",
+                "Name": "Ristorante Porto",
+                "Adresse": "Friedrichshafnerstrasse 54",
+                "Einweihung": null
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.381729307414153,
+                    47.5645074
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Nummer": "21",
+                "Name": "Familie Meier",
+                "Adresse": "Neuhofstrasse 92",
+                "Einweihung": "17.00 – 20.00 Uhr"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.373324247323804,
+                    47.559691010426278
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Nummer": "23",
+                "Name": "Familie Gallardo",
+                "Adresse": "Huebzelg 9",
+                "Einweihung": null
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.369281187690355,
+                    47.5631501
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Nummer": "24",
+                "Name": "Katholische Kirche Romanshorn",
+                "Adresse": "Schlossbergstrasse 28",
+                "Einweihung": "15.00 – 18.30 Uhr (Lebende Krippe)"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.382277908790961,
+                    47.56877945
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Nummer": "16",
+                "Name": "Seraina Tgetgel Halawa, Aylin Ferreira",
+                "Adresse": "Alpsteinstrasse 15",
+                "Einweihung": "17.30 – 19.30 Uhr"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.366188376982757,
+                    47.55979581765731
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "Nummer": "22",
+                "Name": "Katharina Panther, Tobias Zeller",
+                "Adresse": "Heimatstrasse 8",
+                "Einweihung": "Ab 17.00 Uhr"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    9.370256561175905,
+                    47.570186603546183
+                ]
+            }
+        }
+    ]
+}
