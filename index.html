@@ -11,49 +11,47 @@
     <!-- add MapLibre JavaScript and CSS -->
     <!-- <script src="https://tiles.versatiles.org/assets/maplibre-gl/maplibre-gl.js"></script>
     <link href="https://tiles.versatiles.org/assets/maplibre-gl/maplibre-gl.css" rel="stylesheet" /> -->
-
-
     <style>
-        body { margin: 0; padding: 0; }
-        html, body, #map { height: 100%; }
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+        #map {
+            height: 100%;
+        }
+        /* Legenden-Styling */
+        .map-legend {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #333;
+        }
+        .map-legend h4 {
+            margin: 0 0 8px 0;
+            font-size: 16px;
+            color: #8B0000;
+        }
+        .map-legend .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .map-legend .legend-item img {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+        }
     </style>
-
-
 </head>
-<body>
-
-<style>
-    /* Legenden-Styling */
-    .map-legend {
-        position: absolute;
-        bottom: 20px;
-        left: 20px;
-        background-color: rgba(255, 255, 255, 0.8);
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        padding: 10px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-        font-family: 'Arial', sans-serif;
-        font-size: 14px;
-        color: #333;
-    }
-    .map-legend h4 {
-        margin: 0 0 8px 0;
-        font-size: 16px;
-        color: #8B0000;
-    }
-    .map-legend .legend-item {
-        display: flex;
-        align-items: center;
-        margin-bottom: 5px;
-    }
-    .map-legend .legend-item img {
-        width: 20px;
-        height: 20px;
-        margin-right: 8px;
-    }
-</style>
-    
+<body>    
     <div id="map"></div>
     <div class="map-legend">
         <h4>Legende</h4>
@@ -67,127 +65,126 @@
         </div>
     </div>
 
-<div id="map"></div>
-<script>
-    const map = new maplibregl.Map({
-        container: 'map',
-        // style: 'https://tiles.versatiles.org/assets/styles/colorful.json',
-        // style: 'https://tiles.versatiles.org/assets/styles/neutrino.json',
-        // style: "https://vectortiles.geo.admin.ch/styles/ch.swisstopo.leichte-basiskarte.vt/style.json",
-        style: 'https://api.maptiler.com/maps/streets/style.json?key=ZSYofwXTrLbPGfAjpLHh',
-        center: [9.37, 47.568], // Zentrum der Karte (Romanshorn)
-        zoom: 14,
-        minZoom: 13,
-        maxZoom: 18
-    });
-
-    // Füge die Zoom-Steuerung hinzu
-    const nav = new maplibregl.NavigationControl({
-        showZoom: true,    // Zoom-Buttons anzeigen
-        showCompass: false // Kompass nicht anzeigen (optional)
-    });
-    map.addControl(nav, 'top-right'); // Position der Zoom-Steuerung (oben rechts)
-
-    map.on('load', async () => {
-        // Lade Bilder für die Marker
-        const gelberStern = await map.loadImage('./stern_gelb.png');
-        const roterStern = await map.loadImage('./stern_rot.png');
-        
-        // Füge die Markerbilder hinzu
-        map.addImage('stern_gelb', gelberStern.data);
-        map.addImage('stern_rot', roterStern.data);
-
-        // Füge die GeoJSON-Quelle für die Adventsfenster hinzu
-        map.addSource('adventsfenster', {
-            'type': 'geojson',
-            'data': './adventsfenster.geojson' // GeoJSON-Datei laden
+    <script>
+        const map = new maplibregl.Map({
+            container: 'map',
+            // style: 'https://tiles.versatiles.org/assets/styles/colorful.json',
+            // style: 'https://tiles.versatiles.org/assets/styles/neutrino.json',
+            // style: "https://vectortiles.geo.admin.ch/styles/ch.swisstopo.leichte-basiskarte.vt/style.json",
+            style: 'https://api.maptiler.com/maps/streets/style.json?key=ZSYofwXTrLbPGfAjpLHh',
+            center: [9.37, 47.568], // Zentrum der Karte (Romanshorn)
+            zoom: 14,
+            minZoom: 13,
+            maxZoom: 18
         });
-
-        // Layer für gelbe Sterne (Einweihung == null)
-        map.addLayer({
-            'id': 'adventsfenster-yellow',
-            'type': 'symbol',
-            'source': 'adventsfenster',
-            'filter': ['==', ['get', 'Einweihung'], null], // Filter: Einweihung ist null
-            'layout': {
-                'icon-image': 'stern_gelb', // Gelbes Sternbild verwenden
-                'icon-size': 0.4,
-                'icon-allow-overlap': true
-            }
+    
+        // Füge die Zoom-Steuerung hinzu
+        const nav = new maplibregl.NavigationControl({
+            showZoom: true,    // Zoom-Buttons anzeigen
+            showCompass: false // Kompass nicht anzeigen (optional)
         });
-
-        // Layer für rote Sterne (Einweihung != null)
-        map.addLayer({
-            'id': 'adventsfenster-red',
-            'type': 'symbol',
-            'source': 'adventsfenster',
-            'filter': ['!=', ['get', 'Einweihung'], null], // Filter: Einweihung ist nicht null
-            'layout': {
-                'icon-image': 'stern_rot', // Rotes Sternbild verwenden
-                'icon-size': 0.4,
-                'icon-allow-overlap': true
-            }
+        map.addControl(nav, 'top-right'); // Position der Zoom-Steuerung (oben rechts)
+    
+        map.on('load', async () => {
+            // Lade Bilder für die Marker
+            const gelberStern = await map.loadImage('./stern_gelb.png');
+            const roterStern = await map.loadImage('./stern_rot.png');
+            
+            // Füge die Markerbilder hinzu
+            map.addImage('stern_gelb', gelberStern.data);
+            map.addImage('stern_rot', roterStern.data);
+    
+            // Füge die GeoJSON-Quelle für die Adventsfenster hinzu
+            map.addSource('adventsfenster', {
+                'type': 'geojson',
+                'data': './adventsfenster.geojson' // GeoJSON-Datei laden
+            });
+    
+            // Layer für gelbe Sterne (Einweihung == null)
+            map.addLayer({
+                'id': 'adventsfenster-yellow',
+                'type': 'symbol',
+                'source': 'adventsfenster',
+                'filter': ['==', ['get', 'Einweihung'], null], // Filter: Einweihung ist null
+                'layout': {
+                    'icon-image': 'stern_gelb', // Gelbes Sternbild verwenden
+                    'icon-size': 0.4,
+                    'icon-allow-overlap': true
+                }
+            });
+    
+            // Layer für rote Sterne (Einweihung != null)
+            map.addLayer({
+                'id': 'adventsfenster-red',
+                'type': 'symbol',
+                'source': 'adventsfenster',
+                'filter': ['!=', ['get', 'Einweihung'], null], // Filter: Einweihung ist nicht null
+                'layout': {
+                    'icon-image': 'stern_rot', // Rotes Sternbild verwenden
+                    'icon-size': 0.4,
+                    'icon-allow-overlap': true
+                }
+            });
+    
+            // Layer für Text mit den Nummern der Adventsfenster
+            map.addLayer({
+                'id': 'adventsfenster-number',
+                'type': 'symbol',
+                'source': 'adventsfenster',
+                'layout': {
+                    'text-field': ['get', 'Nummer'], // Nummer aus GeoJSON holen
+                    // 'text-field': '1', // Nummer direkt in die Text einsetzen
+                    'text-font': ['Frutiger', 'sans-serif'],
+                    'text-size': 12,
+                    'text-anchor': 'center',
+                    'text-offset': [0, 0.2],
+                    'text-allow-overlap': true
+                },
+                'paint': {
+                    'text-halo-color': 'white', // Halo-Effekt für Text
+                    'text-halo-width': 2, // Breite des Halo-Effekts
+                    'text-halo-blur': 1  // Weicher Halo-Effekt
+                }
+            });
+            // Popup für die Markierungen hinzufügen
+            map.on('click', 'adventsfenster-number', function(e) {
+                var coordinates = e.features[0].geometry.coordinates.slice();
+                var properties = e.features[0].properties;
+    
+                // Popup-Inhalt mit Weihnachtsdesign
+                var description = `
+                    <div style="
+                        border: 2px solid #8B0000; 
+                        background-color: #FFF8DC; 
+                        border-radius: 10px; 
+                        padding: 10px; 
+                        text-align: center;
+                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+                        font-family: 'Georgia', serif;">
+                        <h3 style="
+                            color: #8B0000; 
+                            margin: 0 0 5px 0; 
+                            font-size: 18px;">🎄 ${properties.Name || 'Adventsfenster'} 🎄</h3>
+                        <p style="margin: 0; color: #006400;">Adresse: <strong>${properties.Adresse || '-'}</strong></p>
+                        <p style="margin: 5px 0; color: #8B0000;">Einweihung: <strong>${properties.Einweihung || 'Keine Einweihung'}</strong></p>
+                        <p style="margin: 0; font-size: 12px; color: #8B4513;">✨ Frohe Adventszeit! ✨</p>
+                    </div>
+                `;
+    
+                new maplibregl.Popup()
+                    .setLngLat(coordinates)
+                    .setHTML(description)
+                    .addTo(map);
+            });
+    
+            // Cursor bei Hover ändern
+            map.on('mouseenter', 'adventsfenster-number', function() {
+                map.getCanvas().style.cursor = 'pointer';
+            });
+            map.on('mouseleave', 'adventsfenster-number', function() {
+                map.getCanvas().style.cursor = '';
+            });
         });
-
-        // Layer für Text mit den Nummern der Adventsfenster
-        map.addLayer({
-            'id': 'adventsfenster-number',
-            'type': 'symbol',
-            'source': 'adventsfenster',
-            'layout': {
-                'text-field': ['get', 'Nummer'], // Nummer aus GeoJSON holen
-                // 'text-field': '1', // Nummer direkt in die Text einsetzen
-                'text-font': ['Frutiger', 'sans-serif'],
-                'text-size': 12,
-                'text-anchor': 'center',
-                'text-offset': [0, 0.2],
-                'text-allow-overlap': true
-            },
-            'paint': {
-                'text-halo-color': 'white', // Halo-Effekt für Text
-                'text-halo-width': 2, // Breite des Halo-Effekts
-                'text-halo-blur': 1  // Weicher Halo-Effekt
-            }
-        });
-        // Popup für die Markierungen hinzufügen
-        map.on('click', 'adventsfenster-number', function(e) {
-            var coordinates = e.features[0].geometry.coordinates.slice();
-            var properties = e.features[0].properties;
-
-            // Popup-Inhalt mit Weihnachtsdesign
-            var description = `
-                <div style="
-                    border: 2px solid #8B0000; 
-                    background-color: #FFF8DC; 
-                    border-radius: 10px; 
-                    padding: 10px; 
-                    text-align: center;
-                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
-                    font-family: 'Georgia', serif;">
-                    <h3 style="
-                        color: #8B0000; 
-                        margin: 0 0 5px 0; 
-                        font-size: 18px;">🎄 ${properties.Name || 'Adventsfenster'} 🎄</h3>
-                    <p style="margin: 0; color: #006400;">Adresse: <strong>${properties.Adresse || '-'}</strong></p>
-                    <p style="margin: 5px 0; color: #8B0000;">Einweihung: <strong>${properties.Einweihung || 'Keine Einweihung'}</strong></p>
-                    <p style="margin: 0; font-size: 12px; color: #8B4513;">✨ Frohe Adventszeit! ✨</p>
-                </div>
-            `;
-
-            new maplibregl.Popup()
-                .setLngLat(coordinates)
-                .setHTML(description)
-                .addTo(map);
-        });
-
-        // Cursor bei Hover ändern
-        map.on('mouseenter', 'adventsfenster-number', function() {
-            map.getCanvas().style.cursor = 'pointer';
-        });
-        map.on('mouseleave', 'adventsfenster-number', function() {
-            map.getCanvas().style.cursor = '';
-        });
-    });
-</script>
+    </script>
 </body>
 </html>
